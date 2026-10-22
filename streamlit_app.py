@@ -1,6 +1,7 @@
 # Import necessary packages (Make sure to also include in "requirements.txt" in this repository.)
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Print Title for the App
 st.title("Microsoft Stock Data Dashboard by Leting Liu")
@@ -29,18 +30,23 @@ with tabs[2]:
 # Tab 4: A Circle
 with tabs[3]:
     st.subheader(f"Somethhing New")
-    import turtle
+    
+    # Create a figure and axis
+    fig, ax = plt.subplots()
 
-    # Set up the screen and turtle object
-    screen = turtle.Screen()
-    pen = turtle.Turtle()
+    # Create a circle object (Center coordinates x=0, y=0, and radius=5)
+    circle = plt.Circle((0, 0), 5, color='blue', fill=False, linewidth=2)
 
-    # Optional: Customize the appearance
-    pen.color("blue")
-    pen.pensize(3)
+    # Add the circle patch to the plot
+    ax.add_patch(circle)
 
-    # Draw a circle with a radius of 100 pixels
-    pen.circle(100)
+    # Set equal aspect ratio so the circle isn't distorted into an oval
+    ax.set_aspect('equal', adjustable='datalim')
+
+    # Automatically scale limits and show the plot
+    ax.autoscale_view()
+    plt.show()
+
 
     # Keep the window open until you click on it
     screen.exitonclick()
