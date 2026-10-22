@@ -26,7 +26,22 @@ with tabs[2]:
     st.subheader(f"Volume for MSFT")
     st.bar_chart(df['Volume'])
 
-# Tab 4: Volume Chart
+# Tab 4: A Circle
 with tabs[3]:
     st.subheader(f"Somethhing New")
-    st.bar_chart(df['Volume'])
+    import turtle
+
+    # Set up the screen and turtle object
+    screen = turtle.Screen()
+    pen = turtle.Turtle()
+
+    # Optional: Customize the appearance
+    pen.color("blue")
+    pen.pensize(3)
+
+    # Draw a circle with a radius of 100 pixels
+    pen.circle(100)
+
+    # Keep the window open until you click on it
+    screen.exitonclick()
+
